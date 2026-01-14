@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HESI Pharmacology Preparation Guide | May 2027 Cohort</title>
+    <meta name="description" content="Comprehensive HESI Pharmacology exam preparation guide for NURS 3100 students">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Sunset Gradient Colors */
+            --sunset-gold: #FFB84D;
+            --sunset-coral: #FFA07A;
+            --sunset-pink: #FF6B9D;
+            --sunset-rose: #F94C66;
+            --sunset-purple: #C65BCF;
+            --sunset-violet: #8B5CF6;
+            
+            /* Text Colors */
+            --text-primary: #1A1A2E;
+            --text-secondary: #4A4A5C;
+            --text-tertiary: #6B6B7D;
+            
+            /* Accent Colors for Cards */
+            --card-1: #FF6B9D;
+            --card-2: #B388FF;
+            --card-3: #FF8A80;
+            --card-4: #82B1FF;
+            --card-5: #FFB74D;
+            --card-6: #4DD0E1;
+            --card-7: #F06292;
+            --card-8: #FFD54F;
+            --card-9: #81C784;
+            --card-10: #AED581;
+            
+            /* UI Colors */
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.20);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(180deg, 
+                var(--sunset-gold) 0%, 
+                var(--sunset-coral) 20%, 
+                var(--sunset-pink) 40%, 
+                var(--sunset-rose) 60%, 
+                var(--sunset-purple) 80%, 
+                var(--sunset-violet) 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        /* Header Section */
+        .header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 32px;
+            padding: 64px 48px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            text-align: center;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sunset-purple), var(--sunset-rose), var(--sunset-purple));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .top-signature {
+            background: linear-gradient(135deg, var(--sunset-purple), var(--sunset-rose));
+            color: white;
+            padding: 12px 24px;
+            margin: -64px -48px 32px;
+            text-align: center;
+            font-size: 0.875rem;
+            letter-spacing: 0.5px;
+        }
+
+        .top-signature .name {
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+
+        .top-signature .separator {
+            margin: 0 10px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        .top-signature .cohort {
+            font-weight: 500;
+        }
+
+        .top-signature .tagline {
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--sunset-rose), var(--sunset-purple), var(--sunset-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .header .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+        /* Section Cards */
+        .section {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 32px;
+            padding: 48px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        
+        .collapsible-section {
+            animation-delay: 0.2s;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, var(--sunset-pink), var(--sunset-purple)) 1;
+        }
+
+        .section-icon {
+            font-size: 3rem;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.12));
+            line-height: 1;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        /* Important Info Box */
+        .info-box {
+            background: linear-gradient(135deg, 
+                rgba(255, 107, 157, 0.12), 
+                rgba(139, 92, 246, 0.12));
+            border-left: 6px solid var(--sunset-rose);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 24px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-box p {
+            margin-bottom: 14px;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-box strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .info-box a {
+            color: var(--sunset-rose);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid var(--sunset-rose);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .info-box a:hover {
+            opacity: 0.8;
+            border-bottom-width: 3px;
+        }
+
+        .percentage-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--sunset-rose), var(--sunset-purple));
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 1.25rem;
+            box-shadow: 0 6px 20px rgba(249, 76, 102, 0.35);
+            letter-spacing: 0.5px;
+        }
+
+        /* Letter Section */
+        .letter-content {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            line-height: 1.85;
+            font-weight: 500;
+        }
+
+        .letter-content p {
+            margin-bottom: 24px;
+        }
+
+        .letter-content p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .letter-content strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .letter-content em {
+            font-style: italic;
+            color: var(--text-tertiary);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, 
+                rgba(255, 184, 77, 0.2), 
+                rgba(255, 160, 122, 0.2));
+            border-radius: 20px;
+            padding: 36px;
+            margin: 32px 0;
+            text-align: center;
+            border: 3px solid rgba(255, 184, 77, 0.5);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .highlight-box p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--sunset-gold);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            color: var(--sunset-purple);
+            font-weight: 700;
+            margin-top: 40px;
+            font-size: 1.375rem;
+            line-height: 1.6;
+        }
+
+        /* Instructions Box */
+        .instructions-box {
+            background: linear-gradient(135deg, 
+                rgba(139, 92, 246, 0.12), 
+                rgba(255, 107, 157, 0.12));
+            border: 3px solid var(--sunset-purple);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 36px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .instructions-box p {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--sunset-purple);
+            margin: 0;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .instructions-box .icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        /* Study Links Grid */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 28px;
+            margin-top: 32px;
+        }
+
+        .link-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 32px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            border: 4px solid;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Shimmer effect on hover */
+        .link-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .link-card:hover::after {
+            left: 100%;
+        }
+
+        /* Individual card colors */
+        .link-card:nth-child(1) { border-color: var(--card-1); }
+        .link-card:nth-child(2) { border-color: var(--card-2); }
+        .link-card:nth-child(3) { border-color: var(--card-3); }
+        .link-card:nth-child(4) { border-color: var(--card-4); }
+        .link-card:nth-child(5) { border-color: var(--card-5); }
+        .link-card:nth-child(6) { border-color: var(--card-6); }
+        .link-card:nth-child(7) { border-color: var(--card-7); }
+        .link-card:nth-child(8) { border-color: var(--card-8); }
+        .link-card:nth-child(9) { border-color: var(--card-9); }
+        .link-card:nth-child(10) { border-color: var(--card-10); }
+
+        .link-card:nth-child(1):hover { background: linear-gradient(135deg, rgba(255, 107, 157, 0.08), white); }
+        .link-card:nth-child(2):hover { background: linear-gradient(135deg, rgba(179, 136, 255, 0.08), white); }
+        .link-card:nth-child(3):hover { background: linear-gradient(135deg, rgba(255, 138, 128, 0.08), white); }
+        .link-card:nth-child(4):hover { background: linear-gradient(135deg, rgba(130, 177, 255, 0.08), white); }
+        .link-card:nth-child(5):hover { background: linear-gradient(135deg, rgba(255, 183, 77, 0.08), white); }
+        .link-card:nth-child(6):hover { background: linear-gradient(135deg, rgba(77, 208, 225, 0.08), white); }
+        .link-card:nth-child(7):hover { background: linear-gradient(135deg, rgba(240, 98, 146, 0.08), white); }
+        .link-card:nth-child(8):hover { background: linear-gradient(135deg, rgba(255, 213, 79, 0.08), white); }
+        .link-card:nth-child(9):hover { background: linear-gradient(135deg, rgba(129, 199, 132, 0.08), white); }
+        .link-card:nth-child(10):hover { background: linear-gradient(135deg, rgba(174, 213, 129, 0.08), white); }
+
+        .link-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .link-icon {
+            font-size: 3.5rem;
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+            line-height: 1;
+        }
+
+        .link-card:hover .link-icon {
+            transform: scale(1.15) rotate(8deg);
+        }
+
+        .link-text {
+            flex: 1;
+            z-index: 1;
+        }
+
+        .link-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        .link-subtitle {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Feedback Form */
+        .feedback-intro {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        .feedback-form {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.98), 
+                rgba(255, 255, 255, 0.95));
+            border-radius: 24px;
+            padding: 40px;
+            margin-top: 32px;
+            border: 3px solid rgba(139, 92, 246, 0.3);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 1.0625rem;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 3px solid rgba(249, 76, 102, 0.25);
+            border-radius: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--white);
+            color: var(--text-primary);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--sunset-rose);
+            box-shadow: 0 0 0 6px rgba(249, 76, 102, 0.12);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 160px;
+            line-height: 1.7;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--sunset-rose), var(--sunset-purple));
+            color: var(--white);
+            padding: 18px 48px;
+            border: none;
+            border-radius: 100px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 8px 28px rgba(249, 76, 102, 0.35);
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(249, 76, 102, 0.45);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, 
+                rgba(129, 199, 132, 0.2), 
+                rgba(102, 187, 106, 0.2));
+            border: 3px solid #66BB6A;
+            color: #2E7D32;
+            padding: 28px;
+            border-radius: 20px;
+            margin-top: 28px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+            box-shadow: var(--shadow-sm);
+            line-height: 1.6;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Email Note */
+        .email-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9375rem;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 56px 24px 28px;
+            color: var(--white);
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .footer p {
+            margin-bottom: 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            line-height: 1.7;
+        }
+
+        .footer strong {
+            font-weight: 800;
+        }
+
+        .footer-message {
+            margin-bottom: 40px;
+        }
+
+        .footer-opening {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .footer-supporting {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.92;
+            line-height: 1.6;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .footer-signature {
+            padding-top: 36px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .footer-cohort {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            opacity: 0.88;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-tagline {
+            font-size: 1.125rem;
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: 0.2px;
+            line-height: 1.4;
+            opacity: 0.95;
+        }
+
+        /* Collapsible Section */
+        .collapsible-section {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            animation-fill-mode: both;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            padding: 32px 48px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.3s ease;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, var(--sunset-pink), var(--sunset-purple)) 1;
+        }
+
+        .collapsible-header:hover {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.05), rgba(139, 92, 246, 0.05));
+        }
+
+        .collapsible-header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .collapsible-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .click-instruction {
+            font-size: 0.95rem;
+            color: var(--sunset-purple);
+            font-weight: 600;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .collapsible-icon {
+            font-size: 1.75rem;
+            color: var(--sunset-purple);
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-section.active .collapsible-icon {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .collapsible-section.active .collapsible-content {
+            max-height: 1500px;
+        }
+
+        .collapsible-inner {
+            padding: 40px 48px;
+        }
+
+        /* Countdown Timer */
+        .countdown-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 32px;
+            padding: 32px 48px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            text-align: center;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sunset-rose), var(--sunset-purple), var(--sunset-violet));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .countdown-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .countdown-subtitle {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: nowrap;
+        }
+
+        .countdown-unit {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(139, 92, 246, 0.1));
+            border: 2px solid;
+            border-image: linear-gradient(135deg, var(--sunset-rose), var(--sunset-purple)) 1;
+            border-radius: 16px;
+            padding: 16px 20px;
+            min-width: 85px;
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--sunset-rose), var(--sunset-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .countdown-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .daily-dose-note {
+            background: linear-gradient(135deg, rgba(255, 184, 77, 0.15), rgba(255, 160, 122, 0.15));
+            border: 2px solid rgba(255, 184, 77, 0.4);
+            border-radius: 16px;
+            padding: 20px 28px;
+            margin-top: 24px;
+            text-align: center;
+        }
+
+        .daily-dose-note p {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .daily-dose-note .icon {
+            font-size: 1.25rem;
+            margin-right: 8px;
+        }
+
+        .daily-dose-note strong {
+            color: var(--sunset-rose);
+        }
+
+        .study-hub-note {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(198, 91, 207, 0.15));
+            border: 2px solid rgba(139, 92, 246, 0.4);
+            border-radius: 16px;
+            padding: 20px 28px;
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .study-hub-note p {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .study-hub-note .icon {
+            font-size: 1.25rem;
+            margin-right: 8px;
+        }
+
+        .study-hub-note a {
+            color: var(--sunset-purple);
+            text-decoration: none;
+            font-weight: 800;
+            border-bottom: 2px solid var(--sunset-purple);
+            transition: all 0.3s ease;
+        }
+
+        .study-hub-note a:hover {
+            opacity: 0.8;
+            border-bottom-width: 3px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .header {
+                padding: 48px 32px;
+                border-radius: 24px;
+            }
+
+            .top-signature {
+                margin: -48px -32px 24px;
+                padding: 10px 16px;
+                font-size: 0.75rem;
+            }
+
+            .top-signature .separator {
+                margin: 0 6px;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.125rem;
+            }
+
+            .countdown-section {
+                padding: 32px 24px;
+            }
+
+            .countdown-title {
+                font-size: 1.25rem;
+            }
+
+            .countdown-subtitle {
+                font-size: 0.875rem;
+            }
+
+            .countdown-display {
+                gap: 12px;
+            }
+
+            .countdown-unit {
+                padding: 12px 16px;
+                min-width: 70px;
+            }
+
+            .countdown-number {
+                font-size: 1.75rem;
+            }
+
+            .countdown-label {
+                font-size: 0.75rem;
+            }
+
+            .daily-dose-note {
+                padding: 16px 20px;
+            }
+
+            .daily-dose-note p {
+                font-size: 0.9375rem;
+            }
+
+            .study-hub-note {
+                padding: 16px 20px;
+            }
+
+            .study-hub-note p {
+                font-size: 0.9375rem;
+            }
+
+            .section {
+                padding: 32px 24px;
+                border-radius: 24px;
+            }
+
+            .section-header h2 {
+                font-size: 1.875rem;
+            }
+
+            .section-icon {
+                font-size: 2.5rem;
+            }
+
+            .collapsible-header {
+                padding: 24px 24px;
+            }
+
+            .collapsible-title {
+                font-size: 1.625rem;
+            }
+
+            .collapsible-inner {
+                padding: 28px 24px;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .link-card {
+                padding: 24px;
+            }
+
+            .link-icon {
+                font-size: 3rem;
+            }
+
+            .link-title {
+                font-size: 1.375rem;
+            }
+
+            .feedback-form {
+                padding: 28px 20px;
+            }
+
+            .highlight-box p {
+                font-size: 1.25rem;
+            }
+
+            .footer-opening {
+                font-size: 1.5rem;
+            }
+
+            .footer-name {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .header,
+            .section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+        }
+
+        /* === ENHANCEMENTS (Non-Destructive Additions) === */
+        
+        /* Scroll Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced Hover States */
+        .section:hover {
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+            transform: translateY(-2px);
+        }
+
+
+        /* Micro-Affirmations */
+        .micro-affirmation {
+            text-align: center;
+            font-size: 0.9375rem;
+            font-style: italic;
+            color: var(--sunset-purple);
+            font-weight: 600;
+            margin-top: 16px;
+            opacity: 0;
+            animation: fadeInOut 8s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            10%, 90% { opacity: 0.85; }
+        }
+
+        /* Contextual Tooltips */
+        .tooltip-trigger {
+            display: inline-block;
+            margin-left: 6px;
+            cursor: help;
+            font-size: 1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .tooltip-trigger:hover {
+            opacity: 1;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(45, 27, 61, 0.95);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.5;
+            max-width: 280px;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+        /* Gentle Pulse Animation */
+        @keyframes gentlePulse {
+            0%, 100% { box-shadow: 0 6px 20px rgba(249, 76, 102, 0.35); }
+            50% { box-shadow: 0 8px 28px rgba(249, 76, 102, 0.5); }
+        }
+
+        .percentage-badge {
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+
+        /* Reduced Motion Support */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal,
+            .section,
+            .link-card,
+            .percentage-badge {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+
+
+        .timer-icon {
+            font-size: 1.25rem;
+        }
+
+        .timer-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+            }
+
+            .note-title-input {
+                font-size: 1.125rem;
+            }
+
+            .notes-drawer-header h3 {
+                font-size: 1.25rem;
+            }
+
+            .modal {
+                padding: 32px 24px;
+                max-width: 95%;
+            }
+
+            .modal h3 {
+                font-size: 1.5rem;
+            }
+
+                border-radius: 0;
+            }
+
+            .admin-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .admin-content {
+                padding: 24px;
+            }
+
+            .admin-tabs {
+                overflow-x: auto;
+            }
+
+            .admin-tab {
+                padding: 10px 16px;
+                font-size: 0.875rem;
+                white-space: nowrap;
+            }
+
+            .admin-form-group textarea {
+                min-height: 100px;
+            }
+
+            .admin-answer-item {
+                flex-wrap: wrap;
+            }
+
+            .admin-answer-input {
+                flex-basis: calc(100% - 96px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="top-signature">
+                <span class="name">Sophia Ortiz</span>
+                <span class="separator">•</span>
+                <span class="cohort">May 2027 Cohort</span>
+                <span class="separator">•</span>
+                <span class="tagline">Together We Rise</span>
+            </div>
+            
+            <h1>HESI Pharmacology Preparation Guide</h1>
+            <p class="subtitle">May 2027 Cohort • Spring 2026 • NURS 3100</p>
+        </header>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-section reveal">
+            <h2 class="countdown-title">HESI Pharmacology Exam
+                <span class="tooltip-trigger" data-tooltip="Set for 8:00 AM. Early preparation reduces stress and builds confidence.">ℹ️</span>
+            </h2>
+            <p class="countdown-subtitle">Pathophysiology & Pharmacology I and II • April 30, 2026</p>
+            
+            <div class="countdown-display" id="countdown">
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="days">--</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="hours">--</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="minutes">--</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-number" id="seconds">--</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            
+            <div class="micro-affirmation" id="affirmation">
+                Every day of preparation is building your confidence.
+            </div>
+            
+            <div class="daily-dose-note">
+                <p><span class="icon">📚</span>Check out <strong>Daily Dose Q&A</strong> in the GroupMe for more daily practice and review!</p>
+            </div>
+            
+            <div class="study-hub-note">
+                <p><span class="icon">🎓</span>Visit the <a href="https://sites.google.com/view/uwgnursingstudyhub/home?authuser=0" target="_blank" rel="noopener noreferrer">UWG Nursing Study Hub</a> for additional resources!</p>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <main class="content-grid">
+            <!-- Section 1: Important Details -->
+            <section class="section reveal" id="exam-overview">
+                <div class="section-header">
+                    <span class="section-icon" aria-hidden="true">📋</span>
+                    <h2>Exam Overview & Important Details
+                        <span class="tooltip-trigger" data-tooltip="This exam significantly impacts your final grade. Consistent preparation is key to success.">💡</span>
+                    </h2>
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>Course:</strong> NURS 3100 Pathophysiology and Pharmacology II</p>
+                    <p><strong>Semester:</strong> Spring 2026</p>
+                    <p><strong>Exam Weight:</strong> <span class="percentage-badge">10%</span> of overall course grade</p>
+                    <p><strong>Category:</strong> Standalone gradebook category</p>
+                    <p><strong>Reference:</strong> <a href="https://westga365.sharepoint.com/sites/NursingFacultyandStaffTeams-group/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FNursingFacultyandStaffTeams%2Dgroup%2FShared%20Documents%2FGeneral%2FWebsite%2FBSN%20Handbook%5FAY%2025%5F26%5F12%2Epdf&parent=%2Fsites%2FNursingFacultyandStaffTeams%2Dgroup%2FShared%20Documents%2FGeneral%2FWebsite&p=true&ga=1" target="_blank" rel="noopener noreferrer">BSN Handbook</a></p>
+                </div>
+
+                <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.9; font-weight: 500;">
+                    This is not a pass/fail, 5%, but <strong style="color: var(--text-primary);">10%</strong> of your overall course grade. The HESI Pharmacology exam has its own category in the gradebook, which means it carries real weight. Preparing for it and taking it seriously truly matters.
+                </p>
+                
+                <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.9; font-weight: 500; margin-top: 20px;">
+                    At the same time, not passing this exam does not define your intelligence, your effort, or your worth as a future nurse. It is a standardized tool the school uses to evaluate readiness and predict NCLEX success. It measures performance on a specific day under specific conditions, not your potential.
+                </p>
+
+                <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.9; font-weight: 500; margin-top: 20px;">
+                    Even though the exam exists for program evaluation, it still counts toward your grade. That reality is important to acknowledge. This is not meant to create fear, but focus. You have the ability to prepare, to improve, and to show growth. Approach this exam as an opportunity to strengthen your foundation, sharpen your clinical thinking, and move one step closer to where you are going.
+                </p>
+
+                <p style="font-size: 1.125rem; color: var(--text-secondary); line-height: 1.9; font-weight: 500; margin-top: 20px;">
+                    <strong style="color: var(--text-primary);">This moment is about progress, not perfection. You are capable of more than you think.</strong>
+                </p>
+            </section>
+
+            <!-- Section 2: Letter to Cohort - Collapsible -->
+            <div class="collapsible-section reveal" id="message-section">
+                <div class="collapsible-header" onclick="toggleCollapse(this)">
+                    <div class="collapsible-header-content">
+                        <span class="section-icon" aria-hidden="true">💌</span>
+                        <div>
+                            <h2 class="collapsible-title">A Message to the May 2027 Cohort</h2>
+                            <p class="click-instruction">Click here to read the message</p>
+                        </div>
+                    </div>
+                    <span class="collapsible-icon">▼</span>
+                </div>
+                
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <div class="letter-content">
+                            <p><strong style="color: var(--text-primary); font-size: 1.15rem;">Dear May 2027 Cohort,</strong></p>
+                            
+                            <p>It is easy to wonder why studying now matters when the semester has not even begun. The truth is that starting early is not about doing more than everyone else. It is about giving yourself space.</p>
+                            
+                            <p>When you prepare ahead of time, learning happens with clarity instead of urgency. Concepts settle in rather than being forced through panic. Stress stays lower, confidence grows faster, and you avoid being pushed into constant catch-up mode.</p>
+                            
+                            <p>Nursing school favors consistency over cramming. Early studying turns exams into familiar check-ins instead of emergencies. It gives you flexibility when life happens and allows you to walk into the semester already recognizing the material, not meeting it for the first time.</p>
+                            
+                            <p>I write this as a reminder to you, and to myself, that we are allowed to make things easier on ourselves. This is also a message we can return to and build together. Every small step taken early is an act of care for your future self and the nurse you are becoming. You do not have to have everything figured out. You just have to keep showing up.</p>
+                            
+                            <div class="signature">
+                                With love,<br>
+                                Sophia Ortiz
+                            </div>
+                            
+                            <p style="text-align: center; font-size: 0.9375rem; font-weight: 800; color: var(--text-primary); margin-top: 24px; letter-spacing: 0.3px;">
+                                May 2027 Cohort • <em style="color: var(--sunset-purple); font-style: italic; font-weight: 800;">Together We Rise</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Study Resources -->
+            <section class="section reveal" id="resources-section">
+                <div class="section-header">
+                    <span class="section-icon" aria-hidden="true">📚</span>
+                    <h2>HESI PowerPoint Study Resources
+                        <span class="tooltip-trigger" data-tooltip="Click each card to access comprehensive topic-specific materials organized by body system.">💡</span>
+                    </h2>
+                </div>
+                
+                <div class="instructions-box">
+                    <p>
+                        <span class="icon" aria-hidden="true">👆</span>
+                        <span>Click on the topic to take you directly to the PowerPoint presentation.</span>
+                    </p>
+                </div>
+                
+                <div class="links-grid">
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=Z4Rnc3&share=EXxaxmRXH7JDj0s6tcD5hLQB-d5eaHqeIyVbGjGXxeZ3sA" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Pharmacology Introduction study materials">
+                        <div class="link-icon" aria-hidden="true">💊</div>
+                        <div class="link-text">
+                            <div class="link-title">Pharmacology Introduction</div>
+                            <div class="link-subtitle">Foundation concepts</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=63YIoG&share=EaO_8qvRD6RHj4YZshxsyhIBDnrt7-3qFBIspzNBRZKqUQ" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Neurological medications study materials">
+                        <div class="link-icon" aria-hidden="true">🧠</div>
+                        <div class="link-text">
+                            <div class="link-title">Neurological</div>
+                            <div class="link-subtitle">CNS & PNS medications</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=oSPWNF&share=EcdE3nAnOZBAhg2qII3buHoBQ3JTRkU5bwlQ2ffFaifmug" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Cardiac medications study materials">
+                        <div class="link-icon" aria-hidden="true">❤️</div>
+                        <div class="link-text">
+                            <div class="link-title">Cardiac</div>
+                            <div class="link-subtitle">Cardiovascular drugs</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=cC2ZqQ&share=EcVQeGSUnfZMnwTLxEHsNt4Bva4Qch0LywMO90cWbhDfjw" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Respiratory medications study materials">
+                        <div class="link-icon" aria-hidden="true">🫁</div>
+                        <div class="link-text">
+                            <div class="link-title">Respiratory</div>
+                            <div class="link-subtitle">Pulmonary medications</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=Tgt1Gy&share=Ee2F7-J3xyZIoPG5Gycs-NABk_E7PuvUsNuWyNr6o46Ufw" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Gastrointestinal medications study materials">
+                        <div class="link-icon" aria-hidden="true">🍽️</div>
+                        <div class="link-text">
+                            <div class="link-title">Gastrointestinal</div>
+                            <div class="link-subtitle">GI system drugs</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=uMXv0C&share=EftdD3FfjAJHvtLdHfOvP-EBFQ8zkYAMxpPdZgQeDweFOw" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Renal medications study materials">
+                        <div class="link-icon" aria-hidden="true">🫘</div>
+                        <div class="link-text">
+                            <div class="link-title">Renal</div>
+                            <div class="link-subtitle">Kidney & urinary drugs</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=2TMQO3&share=EbGM2q2KlUNHlEsK2bXICvABavR84802RPkZbiEw6gxppw" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Endocrine medications study materials">
+                        <div class="link-icon" aria-hidden="true">🦋</div>
+                        <div class="link-text">
+                            <div class="link-title">Endocrine</div>
+                            <div class="link-subtitle">Hormone regulation</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=mcjj5M&share=ERsDEQcbEllEsFsajd9w1fQBMd9BM72pFgPbqxNPNzIBBw" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Analgesics study materials">
+                        <div class="link-icon" aria-hidden="true">💉</div>
+                        <div class="link-text">
+                            <div class="link-title">Analgesics</div>
+                            <div class="link-subtitle">Pain management</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=ihb9yK&share=EaJAh7NlcxNPjqyBD0eBKswBgkxur2XlMDKjWHTRjcYwLw" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Anti-infectives study materials">
+                        <div class="link-icon" aria-hidden="true">🦠</div>
+                        <div class="link-text">
+                            <div class="link-title">Anti-Infectives</div>
+                            <div class="link-subtitle">Antimicrobial agents</div>
+                        </div>
+                    </a>
+
+                    <a href="https://westga365-my.sharepoint.com/:p:/r/personal/kmorales_westga_edu/_layouts/15/guestaccess.aspx?e=GDyPce&share=EUCgCYfucHRJoQenbMwT73kBeb5elazRJs9UYNwlStabBw" target="_blank" rel="noopener noreferrer" class="link-card" aria-label="Cancer medications study materials">
+                        <div class="link-icon" aria-hidden="true">🎗️</div>
+                        <div class="link-text">
+                            <div class="link-title">Cancer Medications</div>
+                            <div class="link-subtitle">Chemotherapy agents</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 4: Feedback Form -->
+            <section class="section reveal" id="feedback-section">
+                <div class="section-header">
+                    <span class="section-icon" aria-hidden="true">✉️</span>
+                    <h2>Share Your Feedback</h2>
+                </div>
+                
+                <p class="feedback-intro">
+                    Have questions, suggestions, or want to share your progress? Send me a message!
+                </p>
+                
+                <form class="feedback-form" id="feedbackForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name <span style="color: var(--sunset-rose);">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name" autocomplete="name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email <span style="color: var(--sunset-rose);">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com" autocomplete="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message <span style="color: var(--sunset-rose);">*</span></label>
+                        <textarea id="message" name="message" required placeholder="Share your thoughts, questions, or suggestions..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    
+                    <p class="email-note">
+                        This will open your email client (Outlook, Gmail, etc.) to send your message to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="493a28263b3d20337b797b7e092e24282025672a2624">[email&#160;protected]</a>
+                    </p>
+                    
+                    <div class="success-message" id="feedbackSuccess">
+                        ✓ Your email client has been opened. Please send the message from there!
+                    </div>
+                </form>
+            </section>
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-message">
+                <p class="footer-opening">You have got this!</p>
+                <p class="footer-supporting">Start early, stay consistent, and trust the process</p>
+            </div>
+            
+            <div class="footer-signature">
+                <p class="footer-name">Sophia Ortiz</p>
+                <p class="footer-cohort">May 2027 Cohort</p>
+                <p class="footer-tagline">Together We Rise</p>
+            </div>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        /* === ORIGINAL FUNCTIONALITY === */
+        
+        // Countdown Timer
+        function updateCountdown() {
+            const examDate = new Date('April 30, 2026 08:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = examDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<p style="font-size: 1.5rem; font-weight: 700; color: var(--sunset-purple); margin: 0;">The exam has arrived! You are ready! 🌟</p>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Toggle collapsible section
+        function toggleCollapse(header) {
+            const section = header.parentElement;
+            section.classList.toggle('active');
+        }
+
+        // Form validation and submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const submitBtn = this.querySelector('.submit-btn');
+            const feedbackSuccess = document.getElementById('feedbackSuccess');
+            
+            // Get values
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const message = messageInput.value.trim();
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                emailInput.focus();
+                return;
+            }
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Opening Email...';
+            
+            // Create mailto link
+            const subject = encodeURIComponent('HESI Prep Guide Feedback from ' + name);
+            const body = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n\n' +
+                'Message:\n' + message + '\n\n' +
+                '---\n' +
+                'Sent from HESI Pharmacology Preparation Guide'
+            );
+            
+            const mailtoLink = 'mailto:saortiz2027@gmail.com?subject=' + subject + '&body=' + body;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            feedbackSuccess.classList.add('show');
+            
+            // Reset form and button after delay
+            setTimeout(() => {
+                this.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                
+                // Hide success message after additional delay
+                setTimeout(() => {
+                    feedbackSuccess.classList.remove('show');
+                }, 3000);
+            }, 2000);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Tooltip Functionality
+        const tooltipTriggers = document.querySelectorAll('.tooltip-trigger');
+        let activeTooltip = null;
+
+        tooltipTriggers.forEach(trigger => {
+            const tooltipText = trigger.getAttribute('data-tooltip');
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = tooltipText;
+            trigger.appendChild(tooltip);
+
+            trigger.addEventListener('mouseenter', function() {
+                this.querySelector('.tooltip').classList.add('show');
+                activeTooltip = this.querySelector('.tooltip');
+            });
+
+            trigger.addEventListener('mouseleave', function() {
+                this.querySelector('.tooltip').classList.remove('show');
+                activeTooltip = null;
+            });
+
+            // Touch support for mobile
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                const thisTooltip = this.querySelector('.tooltip');
+                
+                // Close any other active tooltip
+                if (activeTooltip && activeTooltip !== thisTooltip) {
+                    activeTooltip.classList.remove('show');
+                }
+                
+                thisTooltip.classList.toggle('show');
+                activeTooltip = thisTooltip.classList.contains('show') ? thisTooltip : null;
+            });
+        });
+
+        // Close tooltips on outside click
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.tooltip-trigger') && activeTooltip) {
+                activeTooltip.classList.remove('show');
+                activeTooltip = null;
+            }
+        });
+
+        // Scroll Reveal Animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Rotating Micro-Affirmations
+        const affirmations = [
+            'Every day of preparation is building your confidence.',
+            'Small consistent steps lead to big results.',
+            'You are investing in your future with every study session.',
+            'Progress over perfection. You are doing great.',
+            'Your dedication today shapes your success tomorrow.',
+            'One concept at a time. You have got this.',
+            'The effort you put in now will pay off.'
+        ];
+
+        const affirmationEl = document.getElementById('affirmation');
+        if (affirmationEl) {
+            let currentAffirmation = 0;
+
+            function rotateAffirmation() {
+                currentAffirmation = (currentAffirmation + 1) % affirmations.length;
+                affirmationEl.textContent = affirmations[currentAffirmation];
+            }
+
+            // Rotate every 8 seconds
+            setInterval(rotateAffirmation, 8000);
+        }
+
+        // Add focus styles for keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-nav');
+        });
+
+        // Prevent form resubmission on page refresh
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+
+</body>
+</html>
