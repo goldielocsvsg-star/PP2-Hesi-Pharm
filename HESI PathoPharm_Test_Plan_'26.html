@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HESI Pharmacology Study Plan | Adaptive Timeline</title>
+  <meta name="description" content="Professional adaptive study plan with timer and resources" />
+  <style>
+    :root{
+      --bg1:#FFB84D; --bg2:#FF6B9D; --bg3:#8B5CF6;
+      --ink:#121225; --muted:#5a5a70; --light:#8a8a9e;
+      --glass: rgba(255,255,255,.96);
+      --glass-med: rgba(255,255,255,.92);
+      --glass-light: rgba(255,255,255,.88);
+      --stroke: rgba(18,18,37,.08);
+      --shadow: 0 24px 60px rgba(10,10,30,.15);
+      --shadow2: 0 12px 28px rgba(10,10,30,.10);
+      --shadow3: 0 6px 16px rgba(10,10,30,.08);
+      --radius: 20px;
+
+      --pink:#FF6B9D; --purple:#8B5CF6; --coral:#FFA07A; --gold:#FFB84D;
+      --teal:#4DD0E1; --green:#81C784; --blue:#82B1FF; --rose:#F94C66; --lav:#C65BCF;
+    }
+    @keyframes float{
+      0%, 100%{transform:translateY(0px)}
+      50%{transform:translateY(-6px)}
+    }
+    @keyframes pulse{
+      0%, 100%{opacity:.8}
+      50%{opacity:1}
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+      color:var(--ink);
+      min-height:100vh;
+      background:
+        radial-gradient(1200px 800px at 15% 5%, rgba(255,255,255,.25), transparent 60%),
+        radial-gradient(900px 700px at 85% 8%, rgba(255,255,255,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 48%, var(--bg3) 100%);
+      background-attachment: fixed;
+    }
+    .wrap{max-width:1240px;margin:0 auto;padding:24px 20px 60px}
+    
+    /* Header */
+    .header{
+      background: var(--glass);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px 32px;
+      margin-bottom:24px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .header h1{
+      margin:0 0 8px;
+      font-size:clamp(24px, 3vw, 36px);
+      line-height:1.1;
+      letter-spacing:-0.5px;
+      font-weight:800;
+      background: linear-gradient(135deg, var(--rose), var(--purple));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .header .tagline{
+      margin:0;
+      color:var(--muted);
+      font-weight:600;
+      font-size:15px;
+      line-height:1.5;
+    }
+    .priority-order{
+      margin-top:14px;
+      padding:12px 16px;
+      background: rgba(139,92,246,.08);
+      border:1px solid rgba(139,92,246,.15);
+      border-radius:12px;
+      font-size:13px;
+      font-weight:700;
+      color:var(--ink);
+    }
+    
+    /* Video Resources Section */
+    .video-section{
+      margin-bottom:24px;
+    }
+    .video-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    @media (max-width: 880px){ .video-grid{grid-template-columns:1fr} }
+    .video-card{
+      background: var(--glass);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding:20px;
+      backdrop-filter: blur(20px);
+      transition: all .2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .video-card::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;
+      height:4px;
+      background: linear-gradient(90deg, var(--rose), var(--purple));
+    }
+    .video-card:hover{
+      transform:translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .video-card h3{
+      margin:0 0 8px;
+      font-size:16px;
+      font-weight:800;
+      color:var(--ink);
+    }
+    .video-card p{
+      margin:0 0 14px;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    .video-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 18px;
+      background: linear-gradient(135deg, var(--rose), var(--purple));
+      color:#fff;
+      text-decoration:none;
+      border-radius:10px;
+      font-weight:700;
+      font-size:13px;
+      box-shadow: var(--shadow3);
+      transition: all .2s ease;
+    }
+    .video-link:hover{
+      transform:translateY(-1px);
+      box-shadow: var(--shadow2);
+    }
+    
+    /* Grid Layout */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-bottom:16px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+    
+    /* Cards */
+    .card{
+      background: var(--glass);
+      border:1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      backdrop-filter: blur(20px);
+    }
+    .card-head{
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      border-bottom: 1px solid var(--stroke);
+      background: rgba(139,92,246,.04);
+    }
+    .card-title{
+      font-size:15px;
+      font-weight:800;
+      color:var(--ink);
+      letter-spacing:-0.3px;
+    }
+    .card-badge{
+      font-size:11px;
+      font-weight:800;
+      padding:6px 12px;
+      border-radius:999px;
+      background: rgba(139,92,246,.12);
+      border:1px solid rgba(139,92,246,.20);
+      color:var(--ink);
+      white-space:nowrap;
+    }
+    .card-body{
+      padding:18px 22px;
+    }
+    
+    /* Timer Card */
+    .timer-display{
+      text-align:center;
+      padding:16px;
+      background: rgba(139,92,246,.06);
+      border:1px solid rgba(139,92,246,.12);
+      border-radius:14px;
+      margin-bottom:14px;
+    }
+    .timer-time{
+      font-size:42px;
+      font-weight:900;
+      font-variant-numeric: tabular-nums;
+      background: linear-gradient(135deg, var(--rose), var(--purple));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      letter-spacing:-1px;
+    }
+    .timer-label{
+      font-size:12px;
+      font-weight:700;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+      margin-top:4px;
+    }
+    .timer-controls{
+      display:flex;
+      gap:8px;
+    }
+    .timer-controls button{
+      flex:1;
+    }
+    
+    /* Progress Stats */
+    .stats-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .stat{
+      padding:14px;
+      background: rgba(255,255,255,.60);
+      border:1px solid var(--stroke);
+      border-radius:12px;
+      text-align:center;
+    }
+    .stat-value{
+      font-size:26px;
+      font-weight:900;
+      background: linear-gradient(135deg, var(--rose), var(--purple));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .stat-label{
+      font-size:11px;
+      font-weight:700;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+      margin-top:2px;
+    }
+    .progress-bar-wrap{
+      background: rgba(18,18,37,.06);
+      border-radius:999px;
+      height:10px;
+      overflow:hidden;
+    }
+    .progress-bar-fill{
+      height:100%;
+      background: linear-gradient(90deg, var(--teal), var(--rose), var(--purple));
+      border-radius:999px;
+      width:0%;
+      transition: width .4s ease;
+    }
+    
+    /* Buttons */
+    button{
+      border:0;
+      border-radius:10px;
+      padding:11px 16px;
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+      background: var(--glass-light);
+      color:var(--ink);
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow3);
+      transition: all .15s ease;
+      font-family: inherit;
+    }
+    button:hover{
+      transform:translateY(-1px);
+      box-shadow: var(--shadow2);
+      background: rgba(255,255,255,.95);
+    }
+    button:active{transform:translateY(0)}
+    button.primary{
+      background: linear-gradient(135deg, var(--rose), var(--purple));
+      color:#fff;
+      border:0;
+    }
+    button.success{
+      background: linear-gradient(135deg, var(--teal), var(--green));
+      color:#fff;
+      border:0;
+    }
+    button.warn{
+      background: linear-gradient(135deg, var(--gold), var(--coral));
+      color:#2a1d08;
+      border:0;
+    }
+    
+    /* Topic Distribution */
+    .topic-list{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .topic-item{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 14px;
+      background: rgba(255,255,255,.50);
+      border:1px solid var(--stroke);
+      border-radius:10px;
+      transition: all .2s ease;
+    }
+    .topic-item:hover{
+      background: rgba(255,255,255,.75);
+      transform:translateX(2px);
+    }
+    .topic-name{
+      font-weight:700;
+      font-size:13px;
+      color:var(--ink);
+    }
+    .topic-days{
+      font-size:12px;
+      font-weight:800;
+      padding:5px 10px;
+      border-radius:999px;
+      background: rgba(139,92,246,.12);
+      color:var(--ink);
+    }
+    
+    /* Search & Filter */
+    .search{
+      width:100%;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      padding:12px 14px;
+      font-weight:600;
+      outline:none;
+      background: rgba(255,255,255,.70);
+      box-shadow: var(--shadow3);
+      font-size:14px;
+      font-family: inherit;
+      color:var(--ink);
+    }
+    .search:focus{
+      background: rgba(255,255,255,.95);
+      border-color: rgba(139,92,246,.25);
+    }
+    .tabs{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .tab{
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:12px;
+      font-weight:800;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.60);
+      cursor:pointer;
+      user-select:none;
+      transition: all .2s ease;
+      color:var(--ink);
+    }
+    .tab:hover{
+      background: rgba(255,255,255,.85);
+      transform:translateY(-1px);
+    }
+    .tab.active{
+      background: linear-gradient(135deg, rgba(255,107,157,.15), rgba(139,92,246,.15));
+      border-color: rgba(139,92,246,.25);
+    }
+    
+    /* Daily Schedule */
+    .schedule-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      padding:18px 22px;
+    }
+    .schedule-item{
+      display:grid;
+      grid-template-columns: 28px 1fr auto;
+      gap:14px;
+      align-items:flex-start;
+      background: rgba(255,255,255,.70);
+      border:1px solid var(--stroke);
+      border-radius:14px;
+      padding:16px;
+      box-shadow: var(--shadow3);
+      position:relative;
+      transition: all .2s ease;
+    }
+    .schedule-item:hover{
+      box-shadow: var(--shadow2);
+      transform:translateY(-1px);
+      background: rgba(255,255,255,.90);
+    }
+    .schedule-item.today{
+      outline: 2px solid rgba(77,208,225,.50);
+      box-shadow: 0 12px 32px rgba(10,10,30,.14);
+      animation: float 3s ease-in-out infinite;
+    }
+    .schedule-item.today::after{
+      content:"TODAY";
+      position:absolute;
+      top:14px;right:14px;
+      font-size:10px;
+      font-weight:900;
+      padding:5px 10px;
+      border-radius:999px;
+      background: rgba(77,208,225,.20);
+      border:1px solid rgba(77,208,225,.30);
+      letter-spacing:0.5px;
+      color:#0f2b30;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .schedule-item input[type="checkbox"]{
+      width:20px;
+      height:20px;
+      margin-top:2px;
+      accent-color: var(--purple);
+      cursor:pointer;
+    }
+    .schedule-content h3{
+      margin:0 0 6px;
+      font-size:15px;
+      font-weight:800;
+      color:var(--ink);
+      letter-spacing:-0.2px;
+    }
+    .schedule-content p{
+      margin:4px 0 0;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:600;
+      line-height:1.5;
+    }
+    .schedule-link{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:8px;
+      padding:6px 12px;
+      background: rgba(139,92,246,.10);
+      border:1px solid rgba(139,92,246,.20);
+      border-radius:8px;
+      text-decoration:none;
+      font-size:12px;
+      font-weight:700;
+      color:var(--purple);
+      transition: all .2s ease;
+    }
+    .schedule-link:hover{
+      background: rgba(139,92,246,.18);
+      transform:translateX(2px);
+    }
+    .schedule-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:8px;
+    }
+    .tag{
+      font-size:11px;
+      font-weight:800;
+      border-radius:999px;
+      padding:5px 10px;
+      border:1px solid rgba(18,18,37,.08);
+      background: rgba(255,255,255,.70);
+      white-space:nowrap;
+    }
+    .t-purple{background: rgba(139,92,246,.15); border-color: rgba(139,92,246,.25)}
+    .t-pink{background: rgba(255,107,157,.15); border-color: rgba(255,107,157,.25)}
+    .t-teal{background: rgba(77,208,225,.15); border-color: rgba(77,208,225,.25)}
+    .t-green{background: rgba(129,199,132,.15); border-color: rgba(129,199,132,.25)}
+    .t-gold{background: rgba(255,184,77,.18); border-color: rgba(255,184,77,.30)}
+    .t-rose{background: rgba(249,76,102,.15); border-color: rgba(249,76,102,.25)}
+    .t-lav{background: rgba(198,91,207,.15); border-color: rgba(198,91,207,.25)}
+    .t-blue{background: rgba(130,177,255,.18); border-color: rgba(130,177,255,.28)}
+    .t-coral{background: rgba(255,160,122,.15); border-color: rgba(255,160,122,.25)}
+    
+    .small{font-size:12px;color:var(--light);font-weight:600;line-height:1.6}
+    
+    .footer{
+      margin-top:24px;
+      padding:20px;
+      text-align:center;
+      color: rgba(255,255,255,.95);
+      font-weight:700;
+      text-shadow: 0 8px 20px rgba(10,10,30,.25);
+      line-height:1.7;
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>HESI Pharmacology Study Plan</h1>
+      <p class="tagline">Adaptive timeline with study timer • Start with 2 video review days → Content study → End with 2 comprehensive review days • Exam: April 30, 2026</p>
+      <div class="priority-order">
+        📊 High-Yield Priority: Cardiac → Endocrine → Anti-Infectives → Neurological → Respiratory → Analgesics → GI<br/>
+        📺 Schedule Flow: Days 1-2 Video Reviews → Days 3-X All Content Topics → Final 2 Days Comprehensive Review
+      </div>
+    </div>
+
+    <!-- Video Resources Section -->
+    <div class="video-section">
+      <div class="video-grid">
+        <div class="video-card">
+          <h3>🎥 Pharm Review Session (Dec 4)</h3>
+          <p>Comprehensive review covering high-yield topics and clinical applications</p>
+          <a href="https://westga365-my.sharepoint.com/personal/kmorales_westga_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkmorales_westga_edu%2FDocuments%2FRecordings%2FPharm+review-20241204_173015-Meeting+Recording.mp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&ga=1&startedResponseCatch=true&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.8c94161e-432a-4b2b-a296-3219ffc478b4" target="_blank" class="video-link">
+            <span>▶</span> Watch Review
+          </a>
+        </div>
+        
+        <div class="video-card">
+          <h3>🎥 Pharm Review Session (Dec 3)</h3>
+          <p>Essential pharmacology concepts and practice applications</p>
+          <a href="https://westga365-my.sharepoint.com/personal/kmorales_westga_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkmorales_westga_edu%2FDocuments%2FRecordings%2FPharm+review-20241203_173100-Meeting+Recording.mp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&ga=1&startedResponseCatch=true&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.7c34b36a-32c0-4211-9f5c-5f42f6e10018" target="_blank" class="video-link">
+            <span>▶</span> Watch Review
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Extra Help Resource -->
+    <div class="card" style="margin-bottom:24px;background:linear-gradient(135deg, rgba(255,184,77,.08), rgba(255,107,157,.08))">
+      <div class="card-head" style="background:linear-gradient(135deg, rgba(255,184,77,.10), rgba(255,107,157,.10))">
+        <div class="card-title">📌 Extra Help Resource</div>
+        <div class="card-badge" style="background:linear-gradient(135deg, rgba(255,184,77,.20), rgba(255,107,157,.20))">Key Points</div>
+      </div>
+      <div class="card-body">
+        <h3 style="margin:0 0 8px;font-size:16px;font-weight:800">Pharmacology Key Points Document</h3>
+        <p style="margin:0 0 14px;font-size:13px;color:var(--muted);line-height:1.5">
+          Essential high-yield pharmacology concepts, drug classifications, and nursing priorities compiled for quick reference and review
+        </p>
+        <a href="https://westga365-my.sharepoint.com/:w:/g/personal/kmorales_westga_edu/EaQV4vTUmpFIuzK493c_T08BcOvy7tJ4NzqmTvjP_Kwxww?e=y2YU8A" target="_blank" rel="noopener noreferrer" class="video-link" style="display:inline-flex">
+          <span>📄</span> View Key Points
+        </a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Timer & Progress Card -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">⏱️ Study Timer & Progress</div>
+          <div class="card-badge" id="badgeStatus">Ready</div>
+        </div>
+        <div class="card-body">
+          <div class="timer-display">
+            <div class="timer-time" id="timerDisplay">00:00:00</div>
+            <div class="timer-label">Session Time</div>
+          </div>
+          <div class="timer-controls">
+            <button class="success" id="btnTimerStart">Start</button>
+            <button id="btnTimerPause">Pause</button>
+            <button class="warn" id="btnTimerReset">Reset</button>
+          </div>
+          
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--stroke)">
+            <div class="stats-grid">
+              <div class="stat">
+                <div class="stat-value" id="kToday">Day —</div>
+                <div class="stat-label">Current Day</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value" id="kPct">0%</div>
+                <div class="stat-label">Progress</div>
+              </div>
+            </div>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar-fill" id="barFill"></div>
+            </div>
+            <div class="small" style="text-align:center;margin-top:8px">
+              <span id="kDone">0</span> of <span id="kTotal">0</span> days completed
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic Distribution Card -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">📚 Topic Distribution</div>
+          <div class="card-badge" id="badgeTopics">Not Set</div>
+        </div>
+        <div class="card-body">
+          <div id="topicDistBody">
+            <div class="small">Set your start date to see how topics are distributed based on available time.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Controls Card -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">⚙️ Study Plan Controls</div>
+        </div>
+        <div class="card-body">
+          <button class="primary" id="btnStart" style="width:100%;margin-bottom:8px">📅 Set Start Date</button>
+          <button class="warn" id="btnReset" style="width:100%;margin-bottom:8px">🔄 Reset Progress</button>
+          <button id="btnResetPlan" style="width:100%;background:linear-gradient(135deg, #ef5350, #d32f2f);color:white">🗑️ Reset Entire Plan</button>
+        </div>
+      </div>
+
+      <!-- Search & Filter Card -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">🔍 Search & Filter</div>
+          <div class="card-badge" id="badgeCount">0 Days</div>
+        </div>
+        <div class="card-body">
+          <input class="search" id="search" placeholder="Search topics, drugs, or content..." />
+          <div class="tabs">
+            <div class="tab active" data-filter="all">All Topics</div>
+            <div class="tab" data-filter="cardiac">Cardiac</div>
+            <div class="tab" data-filter="endo">Endocrine</div>
+            <div class="tab" data-filter="neuro">Neuro</div>
+            <div class="tab" data-filter="resp">Respiratory</div>
+            <div class="tab" data-filter="video">Video Reviews</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Schedule Card -->
+    <div class="card" style="margin-top:16px">
+      <div class="card-head">
+        <div class="card-title">📋 Daily Study Schedule</div>
+        <div class="card-badge">Content + Practice</div>
+      </div>
+      <div class="schedule-list" id="list"></div>
+    </div>
+
+    <div class="footer">
+      Good luck everyone! 🍀<br/>
+      <strong>Exam: April 30, 2026</strong>
+    </div>
+  </div>
+
+<script>
+  const EXAM_DATE = new Date(2026, 3, 30);
+  
+  // Topics with PowerPoint resource URLs
+  const TOPICS = [
+    {key:"intro", name:"Pharmacology Introduction", icon:"💊", minDays:1, idealDays:1, priority:0, color:"gold", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/EXxaxmRXH7JDj0s6tcD5hLQBLGBKDiVA2844wxFueVg2GA?e=DPuonn"},
+    {key:"cardiac", name:"Cardiac", icon:"❤️", minDays:3, idealDays:4, priority:1, color:"rose", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/EcdE3nAnOZBAhg2qII3buHoBWlmQOKpj0poqeHh9KMKpew?e=xErT5F"},
+    {key:"endo", name:"Endocrine", icon:"🦋", minDays:2, idealDays:3, priority:2, color:"purple", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/EbGM2q2KlUNHlEsK2bXICvAB52_Ksb8LGkoIAXccb-mlPA?e=Iauc0r"},
+    {key:"antiinf", name:"Anti-Infectives", icon:"🦠", minDays:2, idealDays:3, priority:3, color:"green", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/EaJAh7NlcxNPjqyBD0eBKswB4HXbVXIlLNI1JGaV_uLrBg?e=ZEY5Fv"},
+    {key:"neuro", name:"Neurological", icon:"🧠", minDays:3, idealDays:4, priority:4, color:"lav", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/EaO_8qvRD6RHj4YZshxsyhIB6xT4xqeQk3-bf8BXflJ_qg?e=bf6Yqt"},
+    {key:"resp", name:"Respiratory", icon:"🫁", minDays:2, idealDays:3, priority:5, color:"teal", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/EcVQeGSUnfZMnwTLxEHsNt4BV3MWZeiqe1NgNzihAm66dQ?e=Bun6ps"},
+    {key:"analgesics", name:"Analgesics", icon:"💉", minDays:2, idealDays:3, priority:6, color:"pink", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/ERsDEQcbEllEsFsajd9w1fQBuH7RuT3MSNYpFtrec-c6yw?e=TrCYTu"},
+    {key:"gi", name:"GI", icon:"🍽️", minDays:2, idealDays:3, priority:7, color:"gold", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/Ee2F7-J3xyZIoPG5Gycs-NABdYK_W9u3CRh0wLCSOXbIwg?e=bb7pxA"},
+    {key:"renal", name:"Renal", icon:"🫘", minDays:1, idealDays:2, priority:8, color:"blue", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/EftdD3FfjAJHvtLdHfOvP-EB0K5_G-ibLXpNzwr63wSTZg?e=qWwthh"},
+    {key:"cancer", name:"Cancer Medications", icon:"🎗️", minDays:1, idealDays:2, priority:9, color:"coral", url:"https://westga365-my.sharepoint.com/:p:/g/personal/kmorales_westga_edu/EUCgCYfucHRJoQenbMwT73kB6_gmfmCR6bo0rjcYH4wuSg?e=bbbYhi"},
+  ];
+
+  const CONTENT_TEMPLATES = {
+    intro: [
+      {title:"Pharmacology Principles & Drug Classes", content:"Review pharmacokinetics (ADME), pharmacodynamics, drug classifications, therapeutic index", practice:"50-60 questions on basic pharmacology principles"},
+      {title:"Drug Interactions & Safety", content:"Drug-drug interactions, adverse effects, medication errors, pregnancy categories, nursing process", practice:"50-60 questions on drug safety and interactions"},
+    ],
+    cardiac: [
+      {title:"Antihypertensives: ACE-I, ARBs, CCBs", content:"Lisinopril, losartan, amlodipine: MOA, adverse effects, contraindications, monitoring", practice:"50-60 questions on antihypertensives"},
+      {title:"Diuretics & Heart Failure Meds", content:"Loop (furosemide), thiazide, K-sparing diuretics, digoxin, beta-blockers (metoprolol)", practice:"50-60 questions on diuretics and HF meds"},
+      {title:"Anticoagulants & Antiplatelets", content:"Warfarin, heparin, enoxaparin, DOACs, aspirin, clopidogrel: monitoring, reversal agents", practice:"50-60 questions on anticoagulants"},
+      {title:"Cardiac Integration & Practice", content:"Review all cardiac meds, compare mechanisms, drug interactions, priority interventions", practice:"50-60 mixed cardiac questions"},
+    ],
+    endo: [
+      {title:"Diabetes Medications: Insulin & Oral Agents", content:"Insulin types (rapid, short, intermediate, long), metformin, sulfonylureas, SGLT2 inhibitors", practice:"50-60 questions on diabetes medications"},
+      {title:"Thyroid & Corticosteroids", content:"Levothyroxine, methimazole, PTU, prednisone, hydrocortisone, adrenal suppression", practice:"50-60 questions on thyroid and steroid meds"},
+      {title:"Endocrine Integration & Practice", content:"Review all endocrine meds, compare mechanisms, monitoring, patient education", practice:"50-60 mixed endocrine questions"},
+    ],
+    antiinf: [
+      {title:"Antibiotics: Penicillins, Cephalosporins, Macrolides", content:"Amoxicillin, cephalexin, azithromycin, allergy considerations, C. diff risk", practice:"50-60 questions on antibiotics"},
+      {title:"Antivirals, Antifungals & Resistance", content:"Acyclovir, oseltamivir, fluconazole, antibiotic resistance, culture/sensitivity", practice:"50-60 questions on antivirals and antifungals"},
+      {title:"Anti-Infectives Integration", content:"Review all anti-infective medications, stewardship principles, monitoring", practice:"50-60 mixed anti-infective questions"},
+    ],
+    neuro: [
+      {title:"Seizures & Antiseizure Medications", content:"Seizure types, phenytoin, valproic acid, carbamazepine, levetiracetam, status epilepticus", practice:"50-60 questions on antiseizure meds"},
+      {title:"Parkinson's Disease Medications", content:"Levodopa/carbidopa, dopamine agonists, MAO-B inhibitors, anticholinergics (benztropine)", practice:"50-60 questions on Parkinson's meds"},
+      {title:"Alzheimer's & Dementia Medications", content:"Cholinesterase inhibitors (donepezil, rivastigmine, galantamine), memantine, behavioral management", practice:"50-60 questions on dementia meds"},
+      {title:"Neurological Integration & Practice", content:"Review all neuro meds, compare/contrast, nursing priorities, patient teaching", practice:"50-60 mixed neurological questions"},
+    ],
+    resp: [
+      {title:"Bronchodilators & Asthma Medications", content:"Albuterol, ipratropium, salmeterol, corticosteroids (fluticasone), leukotriene modifiers", practice:"50-60 questions on asthma/COPD meds"},
+      {title:"Respiratory Steroids & Combination Therapy", content:"Inhaled corticosteroids, Advair, Symbicort, proper inhaler technique, spacer use", practice:"50-60 questions on respiratory steroids"},
+      {title:"Respiratory Integration & Practice", content:"Review all respiratory meds, device selection, patient education, exacerbation management", practice:"50-60 mixed respiratory questions"},
+    ],
+    analgesics: [
+      {title:"Opioids & Pain Management", content:"Morphine, fentanyl, oxycodone, hydrocodone, naloxone, pain scales, PCA pumps", practice:"50-60 questions on opioid pain management"},
+      {title:"Non-Opioid Analgesics & NSAIDs", content:"Acetaminophen, ibuprofen, ketorolac, COX-2 inhibitors, adverse effects, contraindications", practice:"50-60 questions on non-opioid analgesics"},
+      {title:"Analgesics Integration & Practice", content:"Review all analgesic medications, multimodal pain management, nursing assessment", practice:"50-60 mixed analgesic questions"},
+    ],
+    gi: [
+      {title:"Acid Suppression: PPIs & H2 Blockers", content:"Omeprazole, pantoprazole, ranitidine, famotidine: indications, adverse effects, interactions", practice:"50-60 questions on acid suppression"},
+      {title:"GI Motility & Antiemetics", content:"Laxatives, antidiarrheals, metoclopramide, ondansetron, prochlorperazine", practice:"50-60 questions on GI motility meds"},
+      {title:"GI Integration & Practice", content:"Review all GI meds, compare mechanisms, nursing considerations, patient teaching", practice:"50-60 mixed GI questions"},
+    ],
+    renal: [
+      {title:"Diuretics Review & Electrolyte Management", content:"Loop, thiazide, K-sparing diuretics, electrolyte imbalances, monitoring parameters", practice:"50-60 questions on diuretics and electrolytes"},
+      {title:"Kidney Disease & Related Medications", content:"ACE inhibitors in CKD, EPO (epoetin alfa), phosphate binders, vitamin D analogs", practice:"50-60 questions on CKD medications"},
+    ],
+    cancer: [
+      {title:"Chemotherapy Agents & Classifications", content:"Alkylating agents, antimetabolites, plant alkaloids, vesicant vs irritant, extravasation", practice:"50-60 questions on chemotherapy"},
+      {title:"Supportive Cancer Medications", content:"Antiemetics (ondansetron, aprepitant), colony-stimulating factors, bone-modifying agents", practice:"50-60 questions on supportive cancer care"},
+    ],
+  };
+
+  const KEY_CHECKS = "hesi_prof_checks";
+  const KEY_START = "hesi_prof_start";
+  const KEY_TIMER = "hesi_prof_timer";
+
+  function loadChecks(){ 
+    try{ 
+      const data = localStorage.getItem(KEY_CHECKS);
+      return data ? JSON.parse(data) : {}; 
+    } catch(e) { 
+      console.error("Error loading checks:", e);
+      return {}; 
+    } 
+  }
+  
+  function saveChecks(x){ 
+    try {
+      localStorage.setItem(KEY_CHECKS, JSON.stringify(x)); 
+    } catch(e) {
+      console.error("Error saving checks:", e);
+      alert("Unable to save progress. Your browser's storage may be full or disabled.");
+    }
+  }
+  
+  function loadStart(){ 
+    try {
+      const s = localStorage.getItem(KEY_START); 
+      return s ? new Date(s) : null; 
+    } catch(e) {
+      console.error("Error loading start date:", e);
+      return null;
+    }
+  }
+  
+  function saveStart(d){ 
+    try {
+      localStorage.setItem(KEY_START, d.toISOString()); 
+    } catch(e) {
+      console.error("Error saving start date:", e);
+      alert("Unable to save start date. Your browser's storage may be full or disabled.");
+    }
+  }
+  
+  function loadTimer(){ 
+    try{ 
+      const data = localStorage.getItem(KEY_TIMER);
+      return data ? JSON.parse(data) : {elapsed: 0, running: false}; 
+    } catch(e) { 
+      console.error("Error loading timer:", e);
+      return {elapsed: 0, running: false}; 
+    } 
+  }
+  
+  function saveTimer(t){ 
+    try {
+      localStorage.setItem(KEY_TIMER, JSON.stringify(t)); 
+    } catch(e) {
+      console.error("Error saving timer:", e);
+      // Don't alert for timer saves as they happen frequently
+    }
+  }
+
+  let checks = loadChecks();
+  let filter = "all";
+  let SCHEDULE = [];
+  let availableDays = null;
+
+  // Timer state
+  let timerState = loadTimer();
+  let timerInterval = null;
+  let timerStartTime = null;
+
+  const elList = document.getElementById("list");
+  const elSearch = document.getElementById("search");
+  const elBadgeCount = document.getElementById("badgeCount");
+  const elDone = document.getElementById("kDone");
+  const elTotal = document.getElementById("kTotal");
+  const elPct = document.getElementById("kPct");
+  const elBar = document.getElementById("barFill");
+  const elToday = document.getElementById("kToday");
+  const elTimerDisplay = document.getElementById("timerDisplay");
+  const elBadgeStatus = document.getElementById("badgeStatus");
+  const elBtnTimerStart = document.getElementById("btnTimerStart");
+  const elBtnTimerPause = document.getElementById("btnTimerPause");
+  const elBtnTimerReset = document.getElementById("btnTimerReset");
+
+  function calculateAvailableDays(startDate){
+    if(!startDate) return null;
+    const start = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+    const exam = new Date(EXAM_DATE.getFullYear(), EXAM_DATE.getMonth(), EXAM_DATE.getDate());
+    const days = Math.floor((exam - start) / (1000*60*60*24));
+    return Math.max(1, days);
+  }
+
+  function buildDynamicSchedule(availableDays){
+    if(!availableDays || availableDays < 1) return [];
+    
+    const schedule = [];
+    let currentDay = 1;
+    const videoDays = 2; // 2 days for watching review videos at START
+    const reviewDays = 2; // 2 days for comprehensive review at END
+    const finalDays = videoDays + reviewDays; // Total 4 days reserved
+    const contentDays = Math.max(1, availableDays - finalDays);
+    
+    // ADD 2 VIDEO REVIEW DAYS FIRST
+    schedule.push({
+      day: currentDay++,
+      topic: "video",
+      title: "Video Review Session 1 (Dec 3)",
+      content: "Watch the December 3rd Pharmacology Review Session. Focus on taking notes on high-yield concepts, drug interactions, and clinical applications covered in the lecture.",
+      practice: "Review session notes and identify areas needing additional study",
+      tags: [{t:"Video Review", c:"t-blue"}, {t:`Day ${currentDay-1}`, c:"t-teal"}],
+      url: "https://westga365-my.sharepoint.com/personal/kmorales_westga_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkmorales_westga_edu%2FDocuments%2FRecordings%2FPharm+review-20241203_173100-Meeting+Recording.mp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&ga=1&startedResponseCatch=true&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.7c34b36a-32c0-4211-9f5c-5f42f6e10018"
+    });
+    
+    schedule.push({
+      day: currentDay++,
+      topic: "video",
+      title: "Video Review Session 2 (Dec 4)",
+      content: "Watch the December 4th Pharmacology Review Session. Synthesize information from both review sessions and create a master list of key concepts to review before the exam.",
+      practice: "Create summary notes from both video sessions for final review",
+      tags: [{t:"Video Review", c:"t-blue"}, {t:`Day ${currentDay-1}`, c:"t-teal"}],
+      url: "https://westga365-my.sharepoint.com/personal/kmorales_westga_edu/_layouts/15/stream.aspx?id=%2Fpersonal%2Fkmorales_westga_edu%2FDocuments%2FRecordings%2FPharm+review-20241204_173015-Meeting+Recording.mp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&ga=1&startedResponseCatch=true&referrer=StreamWebApp.Web&referrerScenario=AddressBarCopied.view.8c94161e-432a-4b2b-a296-3219ffc478b4"
+    });
+    
+    // NOW ADD ALL CONTENT DAYS
+    const minDaysNeeded = TOPICS.reduce((sum, t) => sum + t.minDays, 0);
+    const idealDaysNeeded = TOPICS.reduce((sum, t) => sum + t.idealDays, 0);
+    const topicDays = {};
+    
+    if(contentDays <= minDaysNeeded){
+      let remainingDays = contentDays;
+      const prioritizedTopics = [...TOPICS].sort((a, b) => a.priority - b.priority);
+      for(const topic of prioritizedTopics){
+        if(remainingDays >= topic.minDays){
+          topicDays[topic.key] = topic.minDays;
+          remainingDays -= topic.minDays;
+        } else if(remainingDays > 0){
+          topicDays[topic.key] = remainingDays;
+          remainingDays = 0;
+        } else {
+          topicDays[topic.key] = 0;
+        }
+      }
+    } else if(contentDays >= idealDaysNeeded){
+      let extraDays = contentDays - idealDaysNeeded;
+      for(const topic of TOPICS){
+        topicDays[topic.key] = topic.idealDays;
+      }
+      const highYield = ["cardiac", "endo", "antiinf", "neuro"];
+      let i = 0;
+      while(extraDays > 0){
+        const key = highYield[i % highYield.length];
+        topicDays[key]++;
+        extraDays--;
+        i++;
+      }
+    } else {
+      for(const topic of TOPICS){
+        const range = topic.idealDays - topic.minDays;
+        const ratio = (contentDays - minDaysNeeded) / (idealDaysNeeded - minDaysNeeded);
+        topicDays[topic.key] = Math.round(topic.minDays + (range * ratio));
+      }
+      let total = Object.values(topicDays).reduce((a,b) => a+b, 0);
+      let diff = contentDays - total;
+      const adjustOrder = [...TOPICS].sort((a, b) => a.priority - b.priority);
+      while(diff !== 0){
+        for(const topic of adjustOrder){
+          if(diff === 0) break;
+          if(diff > 0 && topicDays[topic.key] < topic.idealDays){
+            topicDays[topic.key]++;
+            diff--;
+          } else if(diff < 0 && topicDays[topic.key] > topic.minDays){
+            topicDays[topic.key]--;
+            diff++;
+          }
+        }
+        if(diff > 0 && total === Object.values(topicDays).reduce((a,b) => a+b, 0)) break;
+        total = Object.values(topicDays).reduce((a,b) => a+b, 0);
+      }
+    }
+    
+    for(const topic of TOPICS){
+      const days = topicDays[topic.key] || 0;
+      if(days === 0) continue;
+      
+      const templates = CONTENT_TEMPLATES[topic.key];
+      const colorClass = `t-${topic.color}`;
+      
+      if(days === 1){
+        schedule.push({
+          day: currentDay++,
+          topic: topic.key,
+          title: `${topic.name} (Condensed)`,
+          content: `Overview: ${templates.map(t => t.title).join(", ")}`,
+          practice: "50-60 mixed questions covering all subtopics",
+          tags: [{t:topic.name, c:colorClass}, {t:`Day ${currentDay-1}`, c:"t-teal"}],
+          url: topic.url || ""
+        });
+      } else {
+        const contentPerDay = Math.ceil(templates.length / days);
+        let templateIndex = 0;
+        
+        for(let d = 0; d < days; d++){
+          const dayTemplates = templates.slice(templateIndex, templateIndex + contentPerDay);
+          templateIndex += contentPerDay;
+          
+          if(dayTemplates.length === 0) continue;
+          
+          if(dayTemplates.length === 1){
+            schedule.push({
+              day: currentDay++,
+              topic: topic.key,
+              title: dayTemplates[0].title,
+              content: dayTemplates[0].content,
+              practice: dayTemplates[0].practice,
+              tags: [{t:topic.name, c:colorClass}, {t:`Day ${currentDay-1}`, c:"t-teal"}],
+              url: dayTemplates[0].url || topic.url || ""
+            });
+          } else {
+            schedule.push({
+              day: currentDay++,
+              topic: topic.key,
+              title: dayTemplates.map(t => t.title).join(" + "),
+              content: dayTemplates.map(t => t.content).join(". "),
+              practice: "50-60 mixed questions covering combined topics",
+              tags: [{t:topic.name, c:colorClass}, {t:`Day ${currentDay-1}`, c:"t-teal"}],
+              url: topic.url || ""
+            });
+          }
+        }
+      }
+    }
+    
+    // ADD 2 COMPREHENSIVE REVIEW DAYS AT THE VERY END
+    schedule.push({
+      day: currentDay++,
+      topic: "review",
+      title: "Comprehensive Review Day 1",
+      content: "Review HIGH-YIELD topics: Cardiac, Endocrine, Anti-Infectives, Neurological. Focus on drug interactions, contraindications, priority nursing actions",
+      practice: "50-60 comprehensive mixed questions focusing on high-yield content",
+      tags: [{t:"Final Review", c:"t-purple"}, {t:`Day ${currentDay-1}`, c:"t-teal"}],
+      url: ""
+    });
+    
+    schedule.push({
+      day: currentDay++,
+      topic: "review",
+      title: "Comprehensive Review Day 2",
+      content: "Final review: Respiratory, Analgesics, GI, Renal, Cancer Meds. Toxicities, adverse effects, patient teaching, delegation. Confidence building and test-taking strategies",
+      practice: "50-60 comprehensive mixed questions across all topics",
+      tags: [{t:"Final Review", c:"t-purple"}, {t:`Day ${currentDay-1}`, c:"t-teal"}],
+      url: ""
+    });
+    
+    return schedule;
+  }
+
+  function getDayFromStart(){
+    const start = loadStart();
+    if(!start) return null;
+    const now = new Date();
+    const a = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+    const b = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return Math.floor((b - a) / (1000*60*60*24)) + 1;
+  }
+
+  function progress(){
+    let done = 0;
+    for(const s of SCHEDULE){
+      if(checks[`d${s.day}`]) done++;
+    }
+    const total = SCHEDULE.length;
+    const pct = total > 0 ? Math.round((done/total)*100) : 0;
+    return {done, pct, total};
+  }
+
+  function updateHeader(){
+    const {done, pct, total} = progress();
+    elDone.textContent = done;
+    elTotal.textContent = total;
+    elPct.textContent = `${pct}%`;
+    elBar.style.width = `${pct}%`;
+
+    const d = getDayFromStart();
+    if(!d || !availableDays){
+      elToday.textContent = "—";
+      return;
+    }
+    const clamped = Math.max(1, Math.min(availableDays, d));
+    elToday.textContent = clamped;
+  }
+
+  function updateTopicDistribution(){
+    const start = loadStart();
+    if(!start){
+      document.getElementById("topicDistBody").innerHTML = '<div class="small">Set your start date to see topic distribution.</div>';
+      return;
+    }
+    
+    const dist = {};
+    for(const item of SCHEDULE){
+      if(!dist[item.topic]){
+        const topicInfo = TOPICS.find(t => t.key === item.topic);
+        dist[item.topic] = {
+          name: topicInfo ? topicInfo.name : (item.topic === 'review' ? 'Comprehensive Review' : item.topic),
+          icon: topicInfo ? topicInfo.icon : '⚡',
+          color: topicInfo ? topicInfo.color : 'teal',
+          days: 0,
+          firstDay: item.day,
+          lastDay: item.day
+        };
+      }
+      dist[item.topic].days++;
+      dist[item.topic].lastDay = item.day;
+    }
+    
+    let html = '<div class="topic-list">';
+    for(const [key, info] of Object.entries(dist)){
+      const dayRange = info.firstDay === info.lastDay ? `Day ${info.firstDay}` : `Days ${info.firstDay}-${info.lastDay}`;
+      html += `
+        <div class="topic-item">
+          <div class="topic-name">${info.icon} ${info.name}</div>
+          <div class="topic-days">${dayRange}</div>
+        </div>
+      `;
+    }
+    html += '</div>';
+    document.getElementById("topicDistBody").innerHTML = html;
+  }
+
+  function matchesFilter(s){
+    if(filter === "all") return true;
+    return s.topic === filter;
+  }
+
+  function matchesSearch(s, q){
+    if(!q) return true;
+    const hay = `${s.title} ${s.content} ${s.practice} ${s.topic}`.toLowerCase();
+    return hay.includes(q.toLowerCase());
+  }
+
+  function formatTime(seconds){
+    const h = Math.floor(seconds / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = seconds % 60;
+    return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+  }
+
+  function updateTimer(){
+    if(timerState.running && timerStartTime){
+      const now = Date.now();
+      const diff = Math.floor((now - timerStartTime) / 1000);
+      timerState.elapsed = timerState.baseElapsed + diff;
+    }
+    elTimerDisplay.textContent = formatTime(timerState.elapsed);
+    saveTimer(timerState);
+  }
+
+  function updateTimerButtons(){
+    // Update button states based on timer state
+    if(timerState.running){
+      elBtnTimerStart.disabled = true;
+      elBtnTimerStart.style.opacity = "0.5";
+      elBtnTimerStart.style.cursor = "not-allowed";
+      elBtnTimerPause.disabled = false;
+      elBtnTimerPause.style.opacity = "1";
+      elBtnTimerPause.style.cursor = "pointer";
+    } else {
+      elBtnTimerStart.disabled = false;
+      elBtnTimerStart.style.opacity = "1";
+      elBtnTimerStart.style.cursor = "pointer";
+      elBtnTimerPause.disabled = true;
+      elBtnTimerPause.style.opacity = "0.5";
+      elBtnTimerPause.style.cursor = "not-allowed";
+    }
+  }
+
+  function startTimer(){
+    if(timerState.running) return; // Already running, do nothing
+    
+    timerState.running = true;
+    timerState.baseElapsed = timerState.elapsed;
+    timerStartTime = Date.now();
+    elBadgeStatus.textContent = "Running";
+    
+    // Clear any existing interval to prevent duplicates
+    if(timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(updateTimer, 1000);
+    
+    updateTimer();
+    updateTimerButtons();
+  }
+
+  function pauseTimer(){
+    if(!timerState.running) return; // Not running, do nothing
+    
+    timerState.running = false;
+    elBadgeStatus.textContent = "Paused";
+    
+    // Clear interval
+    if(timerInterval){
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+    
+    updateTimer();
+    updateTimerButtons();
+  }
+
+  function resetTimer(){
+    // Stop timer first
+    timerState.running = false;
+    if(timerInterval){
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+    
+    // Reset state
+    timerState = {elapsed: 0, running: false, baseElapsed: 0};
+    timerStartTime = null;
+    elBadgeStatus.textContent = "Ready";
+    
+    updateTimer();
+    updateTimerButtons();
+  }
+
+  function render(){
+    try {
+      const q = elSearch.value.trim();
+      const todayN = getDayFromStart();
+      const todayDay = todayN && availableDays ? Math.max(1, Math.min(availableDays, todayN)) : null;
+
+      elList.innerHTML = "";
+      
+      if(SCHEDULE.length === 0){
+        const div = document.createElement("div");
+        div.className = "small";
+        div.style.padding = "14px 18px 20px";
+        div.textContent = "Set your start date to generate your personalized study plan.";
+        elList.appendChild(div);
+        updateHeader();
+        return;
+      }
+      
+      const shown = SCHEDULE.filter(s => matchesFilter(s) && matchesSearch(s, q));
+      elBadgeCount.textContent = `${shown.length} Days`;
+
+      if(shown.length === 0){
+        const div = document.createElement("div");
+        div.className = "small";
+        div.style.padding = "14px 18px 20px";
+        div.textContent = "No matches found.";
+        elList.appendChild(div);
+        updateHeader();
+        return;
+      }
+
+      for(const s of shown){
+        const row = document.createElement("div");
+        row.className = "schedule-item";
+        if(todayDay && s.day === todayDay) row.classList.add("today");
+
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.checked = !!checks[`d${s.day}`];
+        cb.addEventListener("change", () => {
+          try {
+            checks[`d${s.day}`] = cb.checked;
+            saveChecks(checks);
+            updateHeader();
+          } catch(e) {
+            console.error("Checkbox error:", e);
+            alert("Error saving progress. Please try again.");
+          }
+        });
+
+        const content = document.createElement("div");
+        content.className = "schedule-content";
+
+        const h = document.createElement("h3");
+        h.textContent = s.title;
+
+        const p1 = document.createElement("p");
+        p1.innerHTML = `<strong>Content:</strong> ${s.content}`;
+
+        const p2 = document.createElement("p");
+        p2.innerHTML = `<strong>Practice:</strong> ${s.practice}`;
+
+        content.appendChild(h);
+        content.appendChild(p1);
+        content.appendChild(p2);
+
+        if(s.url && s.url.trim()){
+          const link = document.createElement("a");
+          link.href = s.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.className = "schedule-link";
+          // Show different text for video days
+          if(s.topic === "video"){
+            link.innerHTML = '🎥 Watch Video Review';
+          } else {
+            link.innerHTML = '🔗 Study Materials';
+          }
+          content.appendChild(link);
+        }
+
+        const tags = document.createElement("div");
+        tags.className = "schedule-tags";
+        for(const tg of s.tags){
+          const span = document.createElement("span");
+          span.className = `tag ${tg.c}`;
+          span.textContent = tg.t;
+          tags.appendChild(span);
+        }
+        content.appendChild(tags);
+
+        row.appendChild(cb);
+        row.appendChild(content);
+
+        elList.appendChild(row);
+      }
+
+      updateHeader();
+    } catch(e) {
+      console.error("Render error:", e);
+      elList.innerHTML = '<div class="small" style="padding:14px 18px;color:#d32f2f">Error displaying schedule. Please refresh the page.</div>';
+    }
+  }
+
+  // Tab filtering
+  document.querySelectorAll(".tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      try {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        filter = tab.dataset.filter;
+        render();
+      } catch(e) {
+        console.error("Filter error:", e);
+        alert("Error applying filter. Please try again.");
+      }
+    });
+  });
+
+  // Timer controls
+  elBtnTimerStart.addEventListener("click", () => {
+    try {
+      startTimer();
+    } catch(e) {
+      console.error("Timer start error:", e);
+      alert("Error starting timer. Please refresh the page.");
+    }
+  });
+  
+  elBtnTimerPause.addEventListener("click", () => {
+    try {
+      pauseTimer();
+    } catch(e) {
+      console.error("Timer pause error:", e);
+      alert("Error pausing timer. Please refresh the page.");
+    }
+  });
+  
+  elBtnTimerReset.addEventListener("click", () => {
+    try {
+      if(confirm("Reset study timer? This will clear your session time.")) {
+        resetTimer();
+      }
+    } catch(e) {
+      console.error("Timer reset error:", e);
+      alert("Error resetting timer. Please refresh the page.");
+    }
+  });
+
+  // Controls
+  document.getElementById("btnStart").addEventListener("click", () => {
+    try {
+      const current = loadStart();
+      const currentStr = current ? current.toISOString().slice(0,10) : "";
+      const promptMsg = current 
+        ? `Current start date: ${currentStr}\n\nEnter new start date (YYYY-MM-DD):`
+        : "Enter start date (YYYY-MM-DD):";
+      const input = prompt(promptMsg, currentStr);
+      if(!input) return;
+      
+      const m = input.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if(!m) return alert("Use YYYY-MM-DD format.");
+      
+      const d = new Date(parseInt(m[1],10), parseInt(m[2],10)-1, parseInt(m[3],10));
+      if(isNaN(d.getTime())) return alert("Invalid date.");
+      
+      if(d >= EXAM_DATE){
+        return alert("Start date must be before April 30, 2026 (exam date).");
+      }
+      
+      // If changing date, ask if they want to keep progress
+      if(current && current.toISOString().slice(0,10) !== input){
+        const keepProgress = confirm("You're changing your start date. This will regenerate the schedule.\n\nDo you want to KEEP your current progress?\n\nClick OK to keep progress, Cancel to reset progress.");
+        if(!keepProgress){
+          // Clear all progress
+          for(const k of Object.keys(checks)) delete checks[k];
+          saveChecks(checks);
+        }
+      }
+      
+      // Save new start date and regenerate schedule
+      saveStart(d);
+      availableDays = calculateAvailableDays(d);
+      SCHEDULE = buildDynamicSchedule(availableDays);
+      document.getElementById("badgeTopics").textContent = `${availableDays} Days`;
+      updateTopicDistribution();
+      
+      // Clear search and reset filter
+      elSearch.value = "";
+      filter = "all";
+      document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.filter === "all"));
+      
+      render();
+      
+      alert(`Schedule generated! You have ${availableDays} days until the exam.\n\n• Days 1-2: Video Reviews\n• Days 3-${availableDays-2}: Content Study\n• Days ${availableDays-1}-${availableDays}: Comprehensive Review`);
+    } catch(e) {
+      console.error("Set start date error:", e);
+      alert("Error setting start date. Please try again.");
+    }
+  });
+
+  document.getElementById("btnReset").addEventListener("click", () => {
+    try {
+      const ok = confirm("Reset all progress? This will clear all completed checkboxes.");
+      if(!ok) return;
+      
+      for(const k of Object.keys(checks)) delete checks[k];
+      saveChecks(checks);
+      render();
+    } catch(e) {
+      console.error("Reset progress error:", e);
+      alert("Error resetting progress. Please try again.");
+    }
+  });
+
+  document.getElementById("btnResetPlan").addEventListener("click", () => {
+    try {
+      const ok = confirm("⚠️ RESET ENTIRE PLAN?\n\nThis will completely clear:\n✓ Start date\n✓ All progress checkboxes\n✓ Study timer\n✓ Schedule\n\nYou'll need to set a new start date to begin fresh.\n\nThis CANNOT be undone!\n\nClick OK to reset everything.");
+      if(!ok) return;
+      
+      // Clear start date
+      localStorage.removeItem(KEY_START);
+      
+      // Clear all progress
+      for(const k of Object.keys(checks)) delete checks[k];
+      localStorage.removeItem(KEY_CHECKS);
+      checks = {};
+      
+      // Reset timer completely
+      timerState = {elapsed: 0, running: false, baseElapsed: 0};
+      timerStartTime = null;
+      if(timerInterval){
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      localStorage.removeItem(KEY_TIMER);
+      elBadgeStatus.textContent = "Ready";
+      elTimerDisplay.textContent = "00:00:00";
+      updateTimerButtons();
+      
+      // Reset schedule
+      availableDays = null;
+      SCHEDULE = [];
+      document.getElementById("badgeTopics").textContent = "Not Set";
+      
+      // Clear topic distribution
+      document.getElementById("topicDistBody").innerHTML = '<div class="small">Set your start date to see topic distribution.</div>';
+      
+      // Clear search and reset filter
+      elSearch.value = "";
+      filter = "all";
+      document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.dataset.filter === "all"));
+      
+      // Render empty schedule
+      render();
+      
+      alert("✅ Plan reset successfully!\n\nClick 'Set Start Date' to create a new study schedule.");
+    } catch(e) {
+      console.error("Reset plan error:", e);
+      alert("Error resetting plan. Please refresh the page and try again.");
+    }
+  });
+
+  elSearch.addEventListener("input", () => {
+    try {
+      render();
+    } catch(e) {
+      console.error("Search error:", e);
+    }
+  });
+
+  // Initialize
+  try {
+    const savedStart = loadStart();
+    if(savedStart){
+      availableDays = calculateAvailableDays(savedStart);
+      SCHEDULE = buildDynamicSchedule(availableDays);
+      document.getElementById("badgeTopics").textContent = `${availableDays} Days`;
+      updateTopicDistribution();
+    }
+    
+    // Initialize timer display and button states
+    updateTimer();
+    updateTimerButtons();
+    
+    // Resume timer if it was running (check if baseElapsed exists to prevent auto-start)
+    if(timerState.running && timerState.baseElapsed !== undefined){
+      // Don't auto-resume, instead just update state to paused
+      timerState.running = false;
+      elBadgeStatus.textContent = "Paused";
+      saveTimer(timerState);
+      updateTimerButtons();
+    }
+    
+    render();
+  } catch(e) {
+    console.error("Initialization error:", e);
+    alert("Error loading study plan. Some features may not work correctly.");
+  }
+
+  // Save timer state before page unload
+  window.addEventListener("beforeunload", () => {
+    try {
+      if(timerState.running){
+        // Update elapsed time one final time before saving
+        updateTimer();
+      }
+    } catch(e) {
+      console.error("Error saving on unload:", e);
+    }
+  });
+
+  // Cleanup on visibility change (tab switch)
+  document.addEventListener("visibilitychange", () => {
+    try {
+      if(document.hidden && timerState.running){
+        // Save current state when tab becomes hidden
+        updateTimer();
+      }
+    } catch(e) {
+      console.error("Error on visibility change:", e);
+    }
+  });
+</script>
+</body>
+</html>
